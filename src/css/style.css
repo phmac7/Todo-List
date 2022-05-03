@@ -1,0 +1,169 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    /* 1rem = 10px*/
+
+}
+
+body {
+    box-sizing: border-box;
+    background-color: #38404B;
+    margin: 7.4rem 12.6rem;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.input {
+    width: 57.8rem;
+    height: 5.9rem;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    align-items: center;
+}
+
+#newtask {
+    width: 100%;
+    height: 100%;
+    padding-left: 38px;
+    background-color: #38404B;
+    border-radius: 10px;
+    outline: #000;
+    box-shadow: 1px 1px 2px rgba(66, 75, 88, .3), -1px -1px 2px rgba(46, 53, 62, .5), inset -3px 3px 6px rgba(46, 53, 62, .2), inset 3px -3px 6px rgba(46, 53, 62, .2), inset -3px -3px 6px rgba(66, 75, 88, .9), inset 3px 3px 8px rgba(46, 53, 62, .9);
+    border:none;
+    color: rgba(148, 173, 207, .7);
+
+}
+
+#newtask::placeholder {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.6rem;
+    color: rgba(148, 173, 207, .7);
+}
+
+
+.enter__button {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.input__enter {
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+}
+
+.burguer__button {
+    position: absolute;
+    right: 87px;
+    top: 95px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.burguer {
+    width: 40px;
+    height: 29px;
+    pointer-events: none;
+}
+
+.tasks {
+    width: 100%;
+    margin-top: 10rem;
+}
+
+.tasks__list, .completed-tasks__list {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tasks__item {
+    width: 44.9rem;
+    height: 5.9rem;
+    color: rgba(148, 173, 207);
+    font-weight: 500;
+    font-size: 1.8rem;
+    font-family: 'Ubuntu', sans-serif;
+    box-shadow: inset 1px 1px 2px rgba(64, 74, 86, 0.3), inset -1px -1px 2px rgba(48, 54, 64, .5), -5px 5px 10px rgba(48, 54, 64, .2), 5px -5px 10px rgba(48, 54, 64, .2), -5px -5px 10px rgba(64, 74, 86, .9), 5px 5px 13px rgba(48, 54, 64, .9) ;
+    border-radius:10px;
+    margin-bottom: 5.2rem;
+    cursor: pointer;
+}
+
+
+
+.completed {
+    color: #94adcf;
+    font-size: 2.8rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+}
+
+.completed-tasks {
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.completed-tasks__item {
+    width: 44.9rem;
+    height: 5.9rem;
+    color: rgba(148, 173, 207);
+    font-weight: 500;
+    font-size: 1.8rem;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: line-through;
+    border-radius:10px;
+    margin-bottom: 5.2rem;
+    box-shadow: 1px 1px 2px rgba(64, 74, 86, .3), -1px -1px 2px rgba(48, 54, 64, .5), inset -5px 5px 10px rgba(48, 54, 64, .2), inset 5px -5px 10px rgba(48, 54, 64, .2), inset -5px -5px 10px rgba(64, 74, 86, .9), inset 5px 5px 13px rgba(48, 54, 64, .9);
+}
+
+.tasks__item--label{
+    display: flex;
+    align-items: center;
+    padding: 1.7rem 2.0rem;
+    position:relative;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.label-text{
+    margin-left: 5rem;
+    pointer-events: none;
+}
+.label-text::first-letter {
+    text-transform: uppercase;
+}
+
+.label-text::before {
+    content:'';
+    position: absolute;
+    left:3rem;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    border: 3px solid #94adcf;
+    border-radius: 50%;
+}
+
+.checked .label-text::before {
+    background-color: #94adcf;
+}
+
