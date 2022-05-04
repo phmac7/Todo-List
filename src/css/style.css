@@ -12,6 +12,7 @@ html {
 
 }
 
+
 body {
     box-sizing: border-box;
     background-color: #38404B;
@@ -40,6 +41,11 @@ body {
     position: relative;
     align-items: center;
     display: none;
+    z-index: 50;
+}
+
+.input-on {
+    display: block;
 }
 
 #newtask {
@@ -68,6 +74,8 @@ body {
     background: transparent;
     border: none;
     cursor: pointer;
+    top:50%;
+    transform: translateY(-50%)
 }
 
 .input__enter {
@@ -184,23 +192,70 @@ body {
 .plus-button {
     width: 60px;
     height: 60px;
-    background: transparent;
+    background-color: #38404B;
     border: none;
     border-radius: 50%;
     box-shadow: inset 1px 1px 2px rgba(90, 102, 120, .3), inset -1px -1px 2px rgba(22, 26, 30, .5), -1px 1px 2px rgba(22, 26, 30, 0.2), 1px -1px 2px rgba(22, 26, 30, 0.2), -1px -1px 2px rgba(89, 101, 120, 0.9), 1px 1px 3px rgba(22, 26, 30, 0.9);
-    position: absolute;
+    position: fixed;
     right: 25px;
     bottom: 70px;
     cursor: pointer;
+    z-index: 50;
 }
+
+/* desenhando icone plus (+) */
 .plus {
-    pointer-events: none;
+    width: 24px;
+    height: 2.8px;
+    background-color: #94ADCF;
+    border-radius: 20px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
 }
+
+.plus:before {
+    content: "";
+    display: block;
+    width: 2.8px;
+    height: 24px;
+    background-color: #94adcf;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+}
+
+/* ... */
+.clicked {
+    background-color: #94adcf;
+}
+
+.clicked > .plus, .clicked > .plus:before {
+    background-color: #38404B;
+}
+
+
 
 .bar-container {
-    position:absolute;
+    position:fixed;
     bottom: 9px;
     left:50%;
-    transform:translateX(-50%)
+    transform:translateX(-50%);
 }
 
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    backdrop-filter: blur(4px)
+}
+
+.modal-on {
+    z-index: 10;
+}
