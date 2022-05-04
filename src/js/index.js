@@ -19,6 +19,7 @@ enterIcon.addEventListener('click', () =>{
     if(input.value !== ''){
         const newTask = input.value
         addTaskToList(newTask)
+        saveList(newTask)
         input.value = ''
         if(modal.classList.contains('modal-on')){
             disableModal()
@@ -42,21 +43,46 @@ const addTaskToList = (task) => {
 container.addEventListener('click', (e) => {
     if(e.target.classList.contains('tasks__item')){
         completedTasklist.appendChild(e.target)
+        updateCompleted(e.target.children[0].innerHTML)
         e.target.classList.remove('tasks__item');
         e.target.classList.toggle('checked')
         e.target.classList.add('completed-tasks__item')
         sortList('.completed-tasks__item')
+
     } else if(e.target.classList.contains('checked')){
         taskList.appendChild(e.target)
+        updateUncompleted(e.target.children[0].innerHTML)
         e.target.classList.remove('completed-tasks__item');
         e.target.classList.toggle('checked')
         e.target.classList.add('tasks__item')
         sortList('.tasks__item')
     }
 })
-//remove class
+//Remove Checked classes
 
-//add clas
+
+//List Database
+let originalList = []
+let countTask = 0
+const saveList = (newTask) => {
+    originalList = [
+        ...originalList, {
+        task: newTask,
+        id: countTask,
+        state: 'uncompleted'
+        }
+    ]
+    countTask++
+}
+const updateCompleted = (task) => {
+    const index = originalList.findIndex(x => x.task === task)
+    originalList[index].state = 'completed'
+}
+const updateUncompleted = (task) => {
+    const index = originalList.findIndex(x => x.task === task)
+    originalList[index].state = 'uncompleted'
+}
+
 
 // sort tasks
 const sortList = (listToBeSorted) => {
@@ -94,4 +120,3 @@ const EnableModal = () => {
     modal.classList.add('modal-on')
     inputDiv.classList.add('input-on')
 }
-//
