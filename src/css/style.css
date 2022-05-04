@@ -23,6 +23,15 @@ body {
     max-width: 1280px;
 }
 
+.header__text{
+    color: #94adcf;
+    font-size: 2.8rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    margin-bottom: 55px;
+    display:none;
+}
+
 .input {
     width: 57.8rem;
     height: 5.9rem;
@@ -30,6 +39,9 @@ body {
     margin: 0 auto;
     position: relative;
     align-items: center;
+}
+.input-on {
+    display: block;
 }
 
 #newtask {
@@ -169,6 +181,80 @@ body {
     
 }
 
+
+.plus-button {
+    width: 60px;
+    height: 60px;
+    background-color: #38404B;
+    border: none;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 2px rgba(90, 102, 120, .3), inset -1px -1px 2px rgba(22, 26, 30, .5), -1px 1px 2px rgba(22, 26, 30, 0.2), 1px -1px 2px rgba(22, 26, 30, 0.2), -1px -1px 2px rgba(89, 101, 120, 0.9), 1px 1px 3px rgba(22, 26, 30, 0.9);
+    position: fixed;
+    right: 25px;
+    bottom: 70px;
+    cursor: pointer;
+    z-index: 50;
+    display: none;
+}
+
+/* desenhando icone plus (+) */
+.plus {
+    width: 24px;
+    height: 2.8px;
+    background-color: #94ADCF;
+    border-radius: 20px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+
+.plus:before {
+    content: "";
+    display: block;
+    width: 2.8px;
+    height: 24px;
+    background-color: #94adcf;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+}
+
+/* ... */
+.clicked {
+    background-color: #94adcf;
+}
+
+.clicked > .plus, .clicked > .plus:before {
+    background-color: #38404B;
+}
+
+
+
+.bar-container {
+    position:fixed;
+    bottom: 9px;
+    left:50%;
+    transform:translateX(-50%);
+    display: none;
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    backdrop-filter: blur(4px)
+}
+
+.modal-on {
+    z-index: 10;
+}
+
 @media only screen and (max-width:1024px){
     html {
         font-size: 58.5%;
@@ -200,5 +286,54 @@ body {
         width: 60%;
         min-width: 400px;
         margin: 0 auto 5.2rem;
+    }
+}
+@media only screen and (max-width:420px){
+    .container {
+        max-width: 420px;
+    }
+    .header__text{
+        display: block;
+    }
+    .input{
+        width: 100%;
+        min-width: 300px;
+        margin: 0;
+        display: none;
+        z-index: 50;
+    }
+    .enter__button{
+        top:50%;
+        transform: translateY(-50%)
+    }
+    .burguer__button{
+        right: 25px;
+        top: 70px;
+    }
+    .tasks{
+        margin-top: 5rem;
+    }
+    .tasks__item{
+        width: 100%;
+        min-width: 300px;
+        height: 5rem;
+        margin-bottom: 4rem;
+    }
+    .completed{
+        text-align: left;
+    }
+    .completed-tasks__item{
+        width: 100%;
+        min-width: 300px;
+        margin-bottom: 4rem;
+    }
+    .bar-container{
+        display: block;
+    }
+    .plus-button{
+        display: block;
+    }
+    .input-on {
+        display: block;
     }
 }
