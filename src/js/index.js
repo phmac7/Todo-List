@@ -1,5 +1,5 @@
 const input = document.querySelector('#newtask')
-const enterIcon = document.querySelector('.enter__button')
+const enterIcon = document.querySelector('[teste]')
 const taskList = document.querySelector('.tasks__list')
 const completedTasklist = document.querySelector('.completed-tasks__list')
 const container = document.querySelector('.container')
