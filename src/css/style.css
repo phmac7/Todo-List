@@ -14,15 +14,19 @@ html {
 
 body {
     box-sizing: border-box;
-    background-color: #38404B;
-    margin: 7.4rem 12.6rem;
+    margin: 0;
 }
 
 .container {
     margin: 0 auto;
     max-width: 1280px;
+    background-color: #38404b;
+    padding: 7.4rem 12.6rem;
+    border-radius: 20px;
 }
-
+.header{
+    position: relative;
+}
 .header__text{
     color: #94adcf;
     font-size: 2.8rem;
@@ -80,8 +84,8 @@ body {
 
 .burguer__button {
     position: absolute;
-    right: 87px;
-    top: 95px;
+    right: -70px;
+    top: 15px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -235,7 +239,7 @@ body {
 
 .bar-container {
     position:fixed;
-    bottom: 9px;
+    bottom: 12px;
     left:50%;
     transform:translateX(-50%);
     display: none;
@@ -260,19 +264,17 @@ body {
         font-size: 58.5%;
         /* 1rem = 9.3px */
     }
-    body{
-        margin: 7.4rem 3rem;
-    }
     .container {
         max-width: 1024px;
+        padding: 7.4rem 3rem;
     }
     .input{
         width:60%;
         min-width: 35rem;
     }
     .burguer__button{
-        right: 25px;
-        top: 85px;
+        right: 0;
+        top: 15px;
     }
     .tasks__item{
         width: 60%;
@@ -289,8 +291,13 @@ body {
     }
 }
 @media only screen and (max-width:420px){
+    body{
+        margin: 0;
+    }
     .container {
         max-width: 420px;
+        height: 884px;
+        padding: 56px 28px;
     }
     .header__text{
         display: block;
@@ -307,8 +314,8 @@ body {
         transform: translateY(-50%)
     }
     .burguer__button{
-        right: 25px;
-        top: 70px;
+        right: 0;
+        top: 0;
     }
     .tasks{
         margin-top: 5rem;
