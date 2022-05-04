@@ -296,7 +296,7 @@ body {
     }
     .container {
         max-width: 420px;
-        height: 884px;
+        min-height: 884px;
         padding: 56px 28px;
     }
     .header__text{
