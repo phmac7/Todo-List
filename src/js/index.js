@@ -19,6 +19,9 @@ enterIcon.addEventListener('click', () =>{
     const newTask = input.value
     addTaskToList(newTask)
     input.value = ''
+    if(modal.classList.contains('modal-on')){
+        disableModal()
+    }
 })
 
 //Adding new tasks:
@@ -50,7 +53,7 @@ window.addEventListener('click', (e) => {
     }
 })
 
-
+// sort tasks
 const sortList = () => {
     const orderTasks = []
     const items = document.querySelectorAll('.tasks__item') //li's
@@ -76,12 +79,20 @@ const sortListCompleted = () => {
 
 plusButton.addEventListener('click', () =>{
     if (plusButton.classList.contains('clicked')) {
-        plusButton.classList.remove('clicked')
-        modal.classList.remove('modal-on')
-        inputDiv.classList.remove('input-on')
+        disableModal()
     } else {
-        plusButton.classList.add('clicked')
-        modal.classList.add('modal-on')
-        inputDiv.classList.add('input-on')
+        EnableModal()
     }
 })
+
+const disableModal = () => {
+    plusButton.classList.remove('clicked')
+    modal.classList.remove('modal-on')
+    inputDiv.classList.remove('input-on')
+}
+
+const EnableModal = () => {
+    plusButton.classList.add('clicked')
+    modal.classList.add('modal-on')
+    inputDiv.classList.add('input-on')
+}
