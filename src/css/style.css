@@ -169,3 +169,36 @@ body {
     
 }
 
+@media only screen and (max-width:1024px){
+    html {
+        font-size: 58.5%;
+        /* 1rem = 9.3px */
+    }
+    body{
+        margin: 7.4rem 3rem;
+    }
+    .container {
+        max-width: 1024px;
+    }
+    .input{
+        width:60%;
+        min-width: 35rem;
+    }
+    .burguer__button{
+        right: 25px;
+        top: 85px;
+    }
+    .tasks__item{
+        width: 60%;
+        min-width: 400px;
+        margin: 0 auto 5.2rem;
+    }
+    .completed{
+        text-align: center;
+    }
+    .completed-tasks__item{
+        width: 60%;
+        min-width: 400px;
+        margin: 0 auto 5.2rem;
+    }
+}
