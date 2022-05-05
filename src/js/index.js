@@ -42,23 +42,31 @@ const addTaskToList = (task) => {
 //toggling tasks between completed or not
 container.addEventListener('click', (e) => {
     if(e.target.classList.contains('tasks__item')){
-        completedTasklist.appendChild(e.target)
         updateCompleted(e.target.children[0].innerHTML)
-        e.target.classList.remove('tasks__item');
-        e.target.classList.toggle('checked')
-        e.target.classList.add('completed-tasks__item')
+        insertCompletedClasses(e.target)
         sortList('.completed-tasks__item')
 
     } else if(e.target.classList.contains('checked')){
-        taskList.appendChild(e.target)
         updateUncompleted(e.target.children[0].innerHTML)
-        e.target.classList.remove('completed-tasks__item');
-        e.target.classList.toggle('checked')
-        e.target.classList.add('tasks__item')
+        removeCompletedClasses(e.target)
         sortList('.tasks__item')
     }
 })
+
 //Remove Checked classes
+const removeCompletedClasses = (target) => {
+    taskList.appendChild(target)
+    target.classList.remove('completed-tasks__item');
+    target.classList.toggle('checked')
+    target.classList.add('tasks__item')
+}
+//Add checked classes
+const insertCompletedClasses= (target) => {
+    completedTasklist.appendChild(target)
+    target.classList.remove('tasks__item');
+    target.classList.toggle('checked')
+    target.classList.add('completed-tasks__item')
+}
 
 
 //List Database
@@ -69,18 +77,18 @@ const saveList = (newTask) => {
         ...originalList, {
         task: newTask,
         id: countTask,
-        state: 'uncompleted'
+        completed: false
         }
     ]
     countTask++
 }
 const updateCompleted = (task) => {
     const index = originalList.findIndex(x => x.task === task)
-    originalList[index].state = 'completed'
+    originalList[index].completed = true
 }
 const updateUncompleted = (task) => {
     const index = originalList.findIndex(x => x.task === task)
-    originalList[index].state = 'uncompleted'
+    originalList[index].completed = false
 }
 
 
