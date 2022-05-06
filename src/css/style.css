@@ -163,6 +163,7 @@ body {
 .label-text{
     margin-left: 5rem;
     pointer-events: none;
+    text-transform: lowercase;
 }
 .label-text::first-letter {
     text-transform: uppercase;
